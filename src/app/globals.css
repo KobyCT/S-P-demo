@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media (orientation: landscape) and (min-aspect-ratio: 1/1) {
+  .responsive-container {
+    left: 30vw !important;
+    right: 30vw !important;
+  }
+}

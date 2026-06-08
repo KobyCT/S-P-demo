@@ -20,12 +20,26 @@ export default function Home() {
           right: 0,
           top: 0,
           bottom: 0,
-          backgroundColor: "rgba(237, 224, 220, 0.3)", //code for #ede0dc with 60% opacity
+          backgroundColor: "rgba(237, 224, 220, 0.3)",
           zIndex: 20,
         }}
       >
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-white text-4xl font-bold">Hello World</h1>
+        <div style={{
+          position: "absolute",
+          left: "10vw",
+          right: "10vw",
+          top: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 224, 220, 0.3)",
+          zIndex: 30,
+          "@media (orientation: landscape)": {
+            left: "30vw",
+            right: "30vw",
+          }
+        }} >
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <h1 className="text-white text-4xl font-bold">Hello World</h1>
+          </div>
         </div>
       </div>
     </div>
