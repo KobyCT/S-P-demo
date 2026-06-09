@@ -1,5 +1,5 @@
 import bg from "../asset/bg.avif";
-
+import First from "../components/first";
 export default function Home() {
   return (
     // 1. Parent container must be relative and have a height/width
@@ -37,8 +37,11 @@ export default function Home() {
             right: "30vw",
           }
         }} >
+          <div>
+            <image className=""/>
+          </div>
           <div className="relative z-10 flex items-center justify-center h-full">
-            <h1 className="text-white text-4xl font-bold">Hello World</h1>
+            <First />
           </div>
         </div>
       </div>
