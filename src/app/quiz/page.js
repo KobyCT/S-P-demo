@@ -22,11 +22,6 @@ export default function Home() {
         }}
       >
         {/* Center-bottom logo */}
-        <img
-          src={banner.src}
-          alt="ctc banner"
-          className="absolute left-1/2 bottom-6 transform -translate-x-1/2 z-50 w-20"
-        />
         {/* Content overlay */}
         <div
           style={{

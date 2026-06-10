@@ -15,7 +15,17 @@ export default function Question({ startIndex = 0, searchParams }) {
   const router = useRouter();
 
   const getParam = (key) => {
-    if (!searchParams) return "";
+    if (!searchParams) {
+      if (
+        typeof window !== "undefined" &&
+        window.location &&
+        window.location.search
+      ) {
+        const sp = new URLSearchParams(window.location.search);
+        return sp.get(key) || "";
+      }
+      return "";
+    }
     if (typeof searchParams.get === "function")
       return searchParams.get(key) || "";
     const v = searchParams[key];
@@ -47,6 +57,7 @@ export default function Question({ startIndex = 0, searchParams }) {
         AB: String(AB),
         SL: String(SL),
         EI: String(EI),
+        name: name,
       });
 
       if (name) {

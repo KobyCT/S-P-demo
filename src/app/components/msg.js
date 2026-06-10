@@ -6,6 +6,22 @@ import personalityData from "../asset/personality.json";
 
 export default function Msg({ CakeName, searchParams }) {
   const getParam = (key) => {
+    // Handle server-side model wrapper from Next: { status: 'resolved_model', value: '...JSON...' }
+    if (
+      searchParams &&
+      searchParams.status === "resolved_model" &&
+      typeof searchParams.value === "string"
+    ) {
+      try {
+        const parsed = JSON.parse(searchParams.value);
+        const pv = parsed[key];
+        if (Array.isArray(pv)) return pv[0] || "";
+        return pv ?? "";
+      } catch (e) {
+        // fall through
+      }
+    }
+
     if (!searchParams) return "";
     if (typeof searchParams.get === "function")
       return searchParams.get(key) || "";
@@ -39,6 +55,10 @@ export default function Msg({ CakeName, searchParams }) {
   // Add all cake images here
   const [message, setMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    console.log("Msg searchParams:", searchParams, "resolved name:", name);
+  }, [searchParams, name]);
 
   const handleSend = () => {
     if (!message.trim()) return;

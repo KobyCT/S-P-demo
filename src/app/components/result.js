@@ -6,14 +6,41 @@ import personalityData from "../asset/personality.json";
 
 export default function Result({ searchParams }) {
   const getParam = (key) => {
-    if (!searchParams) return "";
+    // Handle React Flight server model shape: { status: 'resolved_model', value: '...JSON...' }
+    if (
+      searchParams &&
+      searchParams.status === "resolved_model" &&
+      typeof searchParams.value === "string"
+    ) {
+      try {
+        const parsed = JSON.parse(searchParams.value);
+        const pv = parsed[key];
+        if (Array.isArray(pv)) return pv[0] || "";
+        return pv ?? "";
+      } catch (e) {
+        // fall through to other checks
+      }
+    }
+
+    if (!searchParams) {
+      if (
+        typeof window !== "undefined" &&
+        window.location &&
+        window.location.search
+      ) {
+        const sp = new URLSearchParams(window.location.search);
+        return sp.get(key) || "";
+      }
+      return "";
+    }
+
     if (typeof searchParams.get === "function")
       return searchParams.get(key) || "";
     const v = searchParams[key];
     if (Array.isArray(v)) return v[0] || "";
     return v ?? "";
   };
-
+  console.log("Result searchParams:", searchParams);
   const name = getParam("name") || "Friend";
 
   const parseNum = (key) => {
@@ -23,6 +50,7 @@ export default function Result({ searchParams }) {
   };
 
   const ABv = parseNum("AB");
+  console.log("Parsed AB:", ABv);
   const CMv = parseNum("CM");
   const EIv = parseNum("EI");
   const SLv = parseNum("SL");

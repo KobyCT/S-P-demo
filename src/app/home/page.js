@@ -25,7 +25,7 @@ export default function Home() {
         <img
           src={banner.src}
           alt="ctc banner"
-          className="absolute left-1/2 bottom-6 transform -translate-x-1/2 z-50 w-20"
+          className="absolute left-1/2 bottom-6 -translate-x-1/2 z-50 w-20 w-md-10"
         />
         {/* Content overlay */}
         <div

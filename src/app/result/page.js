@@ -8,7 +8,7 @@ const font = Itim({
   weight: "400",
 });
 
-export default function Home() {
+export default function Home({ searchParams }) {
   return (
     <main className={font.className}>
       {/* 1. Parent container must be relative and have a height/width */}
@@ -22,11 +22,6 @@ export default function Home() {
         }}
       >
         {/* Center-bottom logo */}
-        <img
-          src={banner.src}
-          alt="ctc banner"
-          className="absolute left-1/2 bottom-6 transform -translate-x-1/2 z-50 w-20"
-        />
         {/* Content overlay */}
         <div
           style={{
@@ -56,9 +51,9 @@ export default function Home() {
           >
             <div></div>
             <div className="relative z-10 flex flex-col items-center justify-center h-full gap-6">
-              <Result />
+              <Result searchParams={searchParams} />
               <div className="w-full max-w-2xl">
-                <Msg />
+                <Msg searchParams={searchParams} />
               </div>
             </div>
           </div>
