@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import questionsData from "../asset/questions.json";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export default function Question({ startIndex = 0 }) {
+export default function Question({ startIndex = 0, searchParams }) {
   const [idx, setIdx] = useState(startIndex);
   const [CM, setCM] = useState(0);
   const [AB, setAB] = useState(0);
@@ -13,8 +13,17 @@ export default function Question({ startIndex = 0 }) {
 
   const q = questionsData.questions[idx];
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const name = searchParams ? searchParams.get("name") || "" : "";
+
+  const getParam = (key) => {
+    if (!searchParams) return "";
+    if (typeof searchParams.get === "function")
+      return searchParams.get(key) || "";
+    const v = searchParams[key];
+    if (Array.isArray(v)) return v[0] || "";
+    return v ?? "";
+  };
+
+  const name = getParam("name") || "";
   const [stage, setStage] = useState("enter");
   const ANIM_MS = 500;
 

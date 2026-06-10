@@ -1,17 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import personalityData from "../asset/personality.json";
 
-export default function Result() {
-  const params = useSearchParams();
+export default function Result({ searchParams }) {
+  const getParam = (key) => {
+    if (!searchParams) return "";
+    if (typeof searchParams.get === "function")
+      return searchParams.get(key) || "";
+    const v = searchParams[key];
+    if (Array.isArray(v)) return v[0] || "";
+    return v ?? "";
+  };
 
-  const name = params?.get("name") || "Friend";
+  const name = getParam("name") || "Friend";
 
   const parseNum = (key) => {
-    const v = params?.get(key);
+    const v = getParam(key);
     const n = v ? parseFloat(v) : 0;
     return Number.isFinite(n) ? n : 0;
   };
