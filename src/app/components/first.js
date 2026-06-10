@@ -10,14 +10,11 @@ export default function First() {
     <div className="flex flex-col items-center justify-center w-full h-full text-center">
       <h1 className="text-4xl font-bold mb-8 text-gray-800">Know your Cake</h1>
 
-      <p className="text-lg mb-4 text-gray-600">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <p className="text-lg mb-4 text-gray-600">มาลองค้นหาตัวเองกันเถอะ!</p>
 
       <input
         type="text"
-        placeholder="Enter cake name..."
+        placeholder="ใส่ชื่อของคุณ"
         value={cakeInput}
         onChange={(e) => {
           console.log(e.target.value);
@@ -28,7 +25,6 @@ export default function First() {
       />
 
       {/* Debug output */}
-      <p className="mb-4 text-gray-700">Current value: {cakeInput}</p>
 
       <Link
         href={

@@ -1,7 +1,8 @@
 import bg from "../asset/bg.avif";
 import { Itim } from "next/font/google";
 import Result from "@/app/components/result";
-
+import banner from "../asset/ctc-banner.jpg";
+import Msg from "@/app/components/msg";
 const font = Itim({
   subsets: ["latin"],
   weight: "400",
@@ -20,6 +21,12 @@ export default function Home() {
           backgroundPosition: "center 0",
         }}
       >
+        {/* Center-bottom logo */}
+        <img
+          src={banner.src}
+          alt="ctc banner"
+          className="absolute left-1/2 bottom-6 transform -translate-x-1/2 z-50 w-20"
+        />
         {/* Content overlay */}
         <div
           style={{
@@ -48,8 +55,11 @@ export default function Home() {
             }}
           >
             <div></div>
-            <div className="relative z-10 flex items-center justify-center h-full">
+            <div className="relative z-10 flex flex-col items-center justify-center h-full gap-6">
               <Result />
+              <div className="w-full max-w-2xl">
+                <Msg />
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import bg from "../asset/bg.avif";
 import { Itim } from "next/font/google";
 import Question from "@/app/components/question";
+import banner from "../asset/ctc-banner.jpg";
 
 const font = Itim({
   subsets: ["latin"],
@@ -20,6 +21,12 @@ export default function Home() {
           backgroundPosition: "center 0",
         }}
       >
+        {/* Center-bottom logo */}
+        <img
+          src={banner.src}
+          alt="ctc banner"
+          className="absolute left-1/2 bottom-6 transform -translate-x-1/2 z-50 w-20"
+        />
         {/* Content overlay */}
         <div
           style={{
