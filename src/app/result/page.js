@@ -1,6 +1,6 @@
 import bg from "../asset/bg.avif";
 import { Itim } from "next/font/google";
-import Question from "@/app/components/question";
+import Result from "@/app/components/result";
 
 const font = Itim({
   subsets: ["latin"],
@@ -49,7 +49,7 @@ export default function Home() {
           >
             <div></div>
             <div className="relative z-10 flex items-center justify-center h-full">
-              <Question />
+              <Result />
             </div>
           </div>
         </div>
