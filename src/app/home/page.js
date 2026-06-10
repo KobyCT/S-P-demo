@@ -25,7 +25,7 @@ export default function Home() {
         <img
           src={banner.src}
           alt="ctc banner"
-          className="fixed left-1/2 bottom-6 -translate-x-1/2 z-50 w-20 w-md-10 pointer-events-none"
+          className="fixed left-1/2 bottom-10 -translate-x-1/2 z-50 w-20 w-md-10 pointer-events-none"
         />
         {/* Content overlay */}
         <div
@@ -58,6 +58,9 @@ export default function Home() {
             <div className="relative z-10 flex items-center justify-center h-full">
               <First />
             </div>
+            <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-gray-700 z-40">
+              This content is created solely for the Crack the Cake competition.
+            </p>
           </div>
         </div>
       </div>
