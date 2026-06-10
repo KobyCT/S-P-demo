@@ -10,7 +10,9 @@ export default function First() {
     <div className="flex flex-col items-center justify-center w-full h-full text-center">
       <h1 className="text-4xl font-bold mb-8 text-gray-800">Know your Cake</h1>
 
-      <p className="text-lg mb-4 text-gray-600">มาลองค้นหาตัวเองกันเถอะ!</p>
+      <p className="text-lg mb-4 text-gray-600">
+        มาลองค้นหาเค้กของตัวเองกันเถอะ! by team S&P Save Me Please
+      </p>
 
       <input
         type="text"
