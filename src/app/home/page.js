@@ -22,11 +22,7 @@ export default function Home() {
         }}
       >
         {/* Center-bottom logo */}
-        <img
-          src={banner.src}
-          alt="ctc banner"
-          className="fixed left-1/2 bottom-10 -translate-x-1/2 z-50 w-20 w-md-10 pointer-events-none"
-        />
+       
         {/* Content overlay */}
         <div
           style={{
@@ -58,8 +54,13 @@ export default function Home() {
             <div className="relative z-10 flex items-center justify-center h-full">
               <First />
             </div>
+            <img
+              src={banner.src}
+              alt="ctc banner"
+              className="absolute bottom-16 left-1/2 -translate-x-1/2 w-20 z-35"
+            />
             <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-gray-700 z-40">
-              This content is created solely for the Crack the Cake competition.
+              This content is created solely for the Crack the Cake competition. #CrackTheCakebyCTT
             </p>
           </div>
         </div>
