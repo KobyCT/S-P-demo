@@ -66,10 +66,10 @@ export default function Result({ searchParams }) {
 
   // Add all cake images here
   const cakeImages = [
-    "/cakes/Abyss_Absorber.png",
-    "/cakes/Astroid_Destoryer.png",
-    "/cakes/Bob.png",
-    "/cakes/World_Eater.png",
+    "/cakes/Apple_Noir.png",
+    "/cakes/Crown_Jewel.png",
+    "/cakes/Bunny_Red_Velvet.png",
+    "/cakes/Rose_Bloom.png",
   ];
 
   // Pick one random image when component loads
